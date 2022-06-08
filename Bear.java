@@ -15,16 +15,28 @@ public class Bear extends Actor
     public void act() 
     {
         if(Greenfoot.isKeyDown("a")){
-            move(-2);
+            move(-1);
         }
         if(Greenfoot.isKeyDown("d")){
-            move(2);
+            move(1);
         }
         if(Greenfoot.isKeyDown("s")){
             setLocation(getX(), getY()+1);
         }
         if(Greenfoot.isKeyDown("w")){
             setLocation(getX(), getY()-1);
+        }
+        if(Greenfoot.isKeyDown("right")){
+            setLocation(getX()+1, getY());
+        }
+        if(Greenfoot.isKeyDown("left")){
+            setLocation(getX()-1, getY());
+        }
+        if(Greenfoot.isKeyDown("up")){
+            setLocation(getX(), getY()-1);
+        }
+        if(Greenfoot.isKeyDown("down")){
+            setLocation(getX(), getY()+1);
         }
     }    
 }
