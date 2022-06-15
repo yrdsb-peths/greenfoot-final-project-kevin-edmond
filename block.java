@@ -10,8 +10,9 @@ public class block extends Actor
 {
     public block()
     {
-        getImage().setColor(Color.RED);
-        getImage().fillRect(0,0,45,10);
+        //drawing of the bricks
+        getImage().setColor(Color.CYAN);
+        getImage().fillRect(0,0,60,15);
     }
     /**
      * Act - do whatever the block wants to do. This method is called whenever

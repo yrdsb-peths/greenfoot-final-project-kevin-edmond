@@ -19,9 +19,11 @@ public class PlayerOne extends Actor
      */
     public void act()
     {
+        //Controls of the movement of the paddle which can only turn left or right
         if(Greenfoot.isKeyDown("right"))
             setLocation(getX() + speed, getY());
         if(Greenfoot.isKeyDown("left"))
             setLocation(getX() - speed, getY());
+        
     }
 }

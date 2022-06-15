@@ -12,6 +12,8 @@ public class ball extends Actor
      * Act - do whatever the ball wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    //initializing variables
     int dy = 5;
     int dx = 0;
     int count = 0;
@@ -36,8 +38,10 @@ public class ball extends Actor
     {
         setLocation(getX() + dx, getY() + dy);
     }
+    //making the ball bounce off of the paddle
     public void bounce()
     {
+        // If the ball is touching the player, this method makes the ball bounce back
         if (isTouching(PlayerOne.class) && this.p1.getX() > getX() + 50)
         {
             dy = -dy;
@@ -92,13 +96,11 @@ public class ball extends Actor
         {
             dy = -dy;
         }
-        else if ((isTouching(PlayerOne.class) || isTouching(middleLine.class)))
-        {
-            dy = -dy;
-        }
+        
     }
     public void bounceOffEdge()
     {
+        //method to see if the ball hits edge of the world and makes a richochet off the wall
         if(getX() >= getWorld().getWidth()-1)
         {
             dx = -dx;
@@ -114,6 +116,7 @@ public class ball extends Actor
     }
     public void hitBlock()
     {
+        // if the ball hits the block it removes that block
         Actor Block = getOneIntersectingObject(block.class);
         if(Block != null && Block.getX() > getX() + 30)
         {
@@ -135,6 +138,7 @@ public class ball extends Actor
     }
     public void youLose()
     {
+        //once the ball reaches the ground you lose
         if(getY() >= getWorld().getHeight() -1)
         {
             Greenfoot.stop();
@@ -143,7 +147,8 @@ public class ball extends Actor
     }
     public void youWin()
     {
-        if(count == 48)
+        //you win the game when all blocks are destroyed
+        if(count == 50)
         {
             Greenfoot.stop();
             getWorld().showText("YOU WIN!", getWorld().getWidth()/2,getWorld().getHeight()/2);
