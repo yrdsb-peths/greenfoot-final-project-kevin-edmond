@@ -40,7 +40,14 @@ target2.width=120
 target2.x=0
 target2.y=0
 version=3.0.0
+<<<<<<< Updated upstream
 width=1936
 world.lastInstantiated=MyWorld
 xPosition=-8
 yPosition=-8
+=======
+width=813
+world.lastInstantiated=MyWorld
+xPosition=446
+yPosition=213
+>>>>>>> Stashed changes
