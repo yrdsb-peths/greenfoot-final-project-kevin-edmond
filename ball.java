@@ -31,7 +31,7 @@ public class ball extends Actor
         bounce();
         bounceOffEdge();
         hitBlock();
-        //youLose();
+        youLose();
         youWin();
     }
     public void moveAround()
