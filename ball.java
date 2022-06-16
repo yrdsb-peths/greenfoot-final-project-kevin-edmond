@@ -31,7 +31,7 @@ public class ball extends Actor
         bounce();
         bounceOffEdge();
         hitBlock();
-        youLose();
+        //youLose();
         youWin();
     }
     public void moveAround()
@@ -46,55 +46,66 @@ public class ball extends Actor
         {
             dy = -dy;
             dx -= 6;
+            Greenfoot.playSound("bounce.wav");
         }
         else if (isTouching(PlayerOne.class) && this.p1.getX() < getX() - 50)
         {
             dy = -dy;
             dx += 6;
+            Greenfoot.playSound("bounce.wav");
         }
         else if (isTouching(PlayerOne.class) && this.p1.getX() > getX() + 40 )
         {
             dy = -dy;
             dx -= 5;
+            Greenfoot.playSound("bounce.wav");
         }
         else if (isTouching(PlayerOne.class) && this.p1.getX() < getX() - 40)
         {
             dy = -dy;
             dx += 5;
+            Greenfoot.playSound("bounce.wav");
         }
         else if (isTouching(PlayerOne.class)  && this.p1.getX() > getX() + 30 )
         {
             dy = -dy;
             dx -= 4;
+            Greenfoot.playSound("bounce.wav");
         }
         else if (isTouching(PlayerOne.class) && this.p1.getX() < getX() - 30)
         {
             dy = -dy;
             dx += 4;
+            Greenfoot.playSound("bounce.wav");
         }
         else if (isTouching(PlayerOne.class)  && this.p1.getX() > getX() + 20 )
         {
             dy = -dy;
             dx -= 3;
+            Greenfoot.playSound("bounce.wav");
         }
         else if (isTouching(PlayerOne.class) && this.p1.getX() < getX() - 20)
         {
             dy = -dy;
             dx += 3;
+            Greenfoot.playSound("bounce.wav");
         }
         else if (isTouching(PlayerOne.class)  && this.p1.getX() > getX() + 10 )
         {
             dy = -dy;
             dx -= 2;
+            Greenfoot.playSound("bounce.wav");
         }
         else if (isTouching(PlayerOne.class)  && this.p1.getX() < getX() - 10)
         {
             dy = -dy;
             dx += 2;
+            Greenfoot.playSound("bounce.wav");
         }
         else if ((isTouching(PlayerOne.class) || isTouching(block.class)))
         {
             dy = -dy;
+            Greenfoot.playSound("bounce.wav");
         }
         
     }
@@ -104,36 +115,50 @@ public class ball extends Actor
         if(getX() >= getWorld().getWidth()-1)
         {
             dx = -dx;
+            Greenfoot.playSound("bounce.wav");
         }
         if(getX() <= 0)
         {
             dx = -dx;
+            Greenfoot.playSound("bounce.wav");
         }
         if(getY() <= 0)
             dy= -dy;
+            Greenfoot.playSound("bounce.wav");
         if(getY()>= getWorld().getHeight() - 1)
             dy= -dy;
+            Greenfoot.playSound("bounce.wav");
     }
     public void hitBlock()
     {
         // if the ball hits the block it removes that block
         Actor Block = getOneIntersectingObject(block.class);
+        background world =(background) getWorld();
         if(Block != null && Block.getX() > getX() + 30)
         {
             getWorld().removeObject(Block);
             dx = -dx;
             count++;
+            world.increaseScore();
+            Greenfoot.playSound("bounce.wav");
+            Greenfoot.playSound("breaking.wav");
         }
         else if(Block != null && Block.getX() < getX() - 30)
         {
             getWorld().removeObject(Block);
             dx = -dx;
             count++;
+            world.increaseScore();
+            Greenfoot.playSound("bounce.wav");
+            Greenfoot.playSound("breaking.wav");
         }
         else if(Block !=null)
         {
             getWorld().removeObject(Block);
             count++;
+            world.increaseScore();
+            Greenfoot.playSound("bounce.wav");
+            Greenfoot.playSound("breaking.wav");
         }
     }
     public void youLose()

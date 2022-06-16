@@ -9,6 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class background extends World
 {
     public PlayerOne p1 = new PlayerOne();
+    public int score = 0;
+    Label scoreLabel;
+    int point = 1;
     /**
      * Constructor for objects of class background.
      * 
@@ -18,6 +21,8 @@ public class background extends World
         super(700, 700, 1); 
         prepare();
         Greenfoot.playSound("bg.wav");
+        scoreLabel = new Label(0, 55);
+        addObject(scoreLabel, 35, 35);
     }
     public void prepare()
     {
@@ -29,5 +34,13 @@ public class background extends World
         ball b = new ball(p1, this);
         addObject(b, 350, 600);
     }
-    
+    public void increaseScore()
+    {
+        score++;
+        scoreLabel.setValue(score);
+        if(score % 5 == 0)
+        {
+            point += 0.25;
+        }
+    }
 }
