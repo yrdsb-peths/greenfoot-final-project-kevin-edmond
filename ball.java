@@ -115,19 +115,18 @@ public class ball extends Actor
         if(getX() >= getWorld().getWidth()-1)
         {
             dx = -dx;
-            Greenfoot.playSound("bounce.wav");
         }
         if(getX() <= 0)
         {
             dx = -dx;
-            Greenfoot.playSound("bounce.wav");
+
         }
         if(getY() <= 0)
             dy= -dy;
-            Greenfoot.playSound("bounce.wav");
+
         if(getY()>= getWorld().getHeight() - 1)
             dy= -dy;
-            Greenfoot.playSound("bounce.wav");
+
     }
     public void hitBlock()
     {
